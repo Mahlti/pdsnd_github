@@ -70,7 +70,10 @@ def load_data(city, month, day):
     --------------------------------------
     --------------------------------------"""
 
-
+    """create a new dataframe to pull apart day, month and hour because
+    they are mixed in the same columns: "Start Time" and "End Time" from
+    the csv files."""
+    
     # create a datatime object from Start and End Time columns
     df = pd.read_csv(CITY_DATA[city])
 
