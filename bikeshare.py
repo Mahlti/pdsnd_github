@@ -106,6 +106,17 @@ def load_data(city, month, day):
         df = df[df['Day'] == day.title()]
 
     return df
+
+    # Add the functionality of displaying the raw data that was missing
+def disp_raw_data(df):
+    '''
+    Displays the data used to compute the stats
+    Input:
+        the df with all the bikeshare data
+    Returns:
+       none
+    '''
+
 print('\033[0;046m-\033[1;m'*80)
 def time_stats(df):
 
