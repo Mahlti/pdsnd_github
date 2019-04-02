@@ -70,7 +70,10 @@ def load_data(city, month, day):
     --------------------------------------
     --------------------------------------"""
 
-
+    """create a new dataframe to pull apart day, month and hour because
+    they are mixed in the same columns: "Start Time" and "End Time" from
+    the csv files."""
+    
     # create a datatime object from Start and End Time columns
     df = pd.read_csv(CITY_DATA[city])
 
@@ -106,6 +109,28 @@ def load_data(city, month, day):
         df = df[df['Day'] == day.title()]
 
     return df
+
+    # Add the functionality of displaying the raw data that was missing
+def disp_raw_data(df):
+    '''
+    Displays the data used to compute the stats
+    Input:
+        the df with all the bikeshare data
+    Returns:
+       none
+    '''
+    # Raw data filters; omit irrelevant columns from visualization
+    df = df.drop(['Month', 'Day'], axis = 1)
+    row_index = 0
+    see_data = input("\n Do you like to see rows of raw data used to compute the stats? yes/no \n").lower()
+    while True:
+        if see_data == 'no':
+            return
+        if see_data == 'yes':
+            print(df[row_index: row_index + 5])
+            row_index = row_index + 5
+        see_data = input("\n Would you like to see five more rows of raw data used to compute the stats? yes/no  \n").lower()
+
 print('\033[0;046m-\033[1;m'*80)
 def time_stats(df):
 
@@ -238,6 +263,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
+        disp_raw_data(df)
 
         print('\n\nWould you like to restart? enter yes/no.')
         restart = input('\n\t')
