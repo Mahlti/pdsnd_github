@@ -26,6 +26,9 @@ The Chicago and New York City files also have the following two columns:
 •	Gender
 •	Birth Year
 
+### Libraries in python
+Though there are a number of ways you can go about tackling this project. NumPy and pandas libraries are used in this scrip, as well as time and datatime modules.
+
 ### Statistics computed
 You will learn about bike share use in Chicago, New York City, and Washington by computing a variety of descriptive statistics. In this project, you'll write code to provide the following information:
 
