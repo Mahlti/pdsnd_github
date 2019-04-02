@@ -116,6 +116,17 @@ def disp_raw_data(df):
     Returns:
        none
     '''
+    # Raw data filters; omit irrelevant columns from visualization
+    df = df.drop(['Month', 'Day'], axis = 1)
+    row_index = 0
+    see_data = input("\n Do you like to see rows of raw data used to compute the stats? yes/no \n").lower()
+    while True:
+        if see_data == 'no':
+            return
+        if see_data == 'yes':
+            print(df[row_index: row_index + 5])
+            row_index = row_index + 5
+        see_data = input("\n Would you like to see five more rows of raw data used to compute the stats? yes/no  \n").lower()
 
 print('\033[0;046m-\033[1;m'*80)
 def time_stats(df):
