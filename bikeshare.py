@@ -260,6 +260,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
+        disp_raw_data(df)
 
         print('\n\nWould you like to restart? enter yes/no.')
         restart = input('\n\t')
